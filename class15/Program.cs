@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace class15
 {
@@ -6,7 +7,11 @@ namespace class15
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Electrodomestico electro = new Electrodomestico(200, 10, "azul", "F");
+            
+            Console.WriteLine(electro.Color);
+            Console.WriteLine(electro.ConsumoEnergia);
+            
         }
     }
 }
