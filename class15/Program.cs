@@ -7,7 +7,7 @@ namespace class15
     {
         static void Main(string[] args)
         {
-            Electrodomestico electro = new Electrodomestico(200, 10, "azul", "A");
+            Electrodomestico electro = new Electrodomestico(0, 30, "azul", "A");
             
             Console.WriteLine(electro.Color);
             Console.WriteLine(electro.ConsumoEnergia);

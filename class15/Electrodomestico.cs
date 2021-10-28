@@ -59,9 +59,14 @@ namespace class15
 
         private bool ComprobarConsumoEnergetico(string letra)
         {
-            if (letra is "F" or "A")
+            string[] misLetras = {"A", "B", "C", "D", "E", "F"};
+
+            foreach (string element in misLetras)
             {
-                return true;
+                if (element == letra)
+                {
+                    return true;
+                }
             }
 
             return false;
@@ -89,7 +94,8 @@ namespace class15
         {
             Hashtable consumoE = new Hashtable();
             Hashtable tamanio = new Hashtable();
-            float result = 0;
+        
+            float result = PrecioBase;
             
             consumoE.Add("A", 100);
             consumoE.Add("B", 80);
@@ -103,13 +109,50 @@ namespace class15
             tamanio.Add("5079", 80);
             tamanio.Add("80", 100);
             
+            switch (ConsumoEnergia)
+            {
+                case "A" :
+                    result = result + Convert.ToSingle(consumoE["A"]);
+                    break;
+                case "B" :
+                    result = result + Convert.ToSingle(consumoE["B"]);
+                    break;
+                case "C" :
+                    result = result + Convert.ToSingle(consumoE["C"]);
+                    break;
+                case "D" :
+                    result = result + Convert.ToSingle(consumoE["D"]);
+                    break;
+                case "E" :
+                    result = result + Convert.ToSingle(consumoE["E"]);
+                    break;
+                case "F" :
+                    result = result + Convert.ToSingle(consumoE["F"]);
+                    break;
+            }
+            
             if (Peso is >= 0 and <= 19)
             {
-                result = Convert.ToSingle(tamanio["019"]);
-                result += PrecioBase;
+                result = result + Convert.ToSingle(tamanio["019"]);
+                
+            }if (Peso is >= 20 and <= 59)
+            {
+                result = result + Convert.ToSingle(tamanio["2049"]);
+                
+            } 
+            if (Peso is >= 50 and <= 79)
+            {
+                result = result + Convert.ToSingle(tamanio["5079"]);
+                
+            } 
+            if (Peso >= 80)
+            {
+                result = result + Convert.ToSingle(tamanio["80"]);
+                
             }
 
             return result;
+            
 
         }
         
